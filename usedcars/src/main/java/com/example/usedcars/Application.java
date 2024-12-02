@@ -27,9 +27,10 @@ public class Application {
 	@Bean
 	CommandLineRunner carInitializerRunner(){
 		return args -> {
-			Car car = new Car(1, "Toyota", "Camry", 2018, "White", 30000, "123456789", Status.AVAILABLE);
+			Car car = new Car(1, "Toyota", "Camry", 2018, "White", 30000, "1HGCM82633A123456", Status.AVAILABLE);
 			log.info("Car: {}", car);
 			};
 		}
 
 }
+ 

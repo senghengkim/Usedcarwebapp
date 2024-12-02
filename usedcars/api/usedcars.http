@@ -1,0 +1,54 @@
+### Find ALl cars
+GET http://localhost:8080/api/cars
+
+### Find Run By ID
+GET http://localhost:8080/api/cars/2
+
+
+### Create new Run
+POST http://localhost:8080/api/cars
+Content-Type: application/json
+
+{
+    "id": 5,
+    "make": "BMW",
+    "model": "5 Series",
+    "year": 2023,
+    "color": "Blue",
+    "mileage": 60400,
+    "vin": "4T1B11HK5JU670103",
+    "status": "AVAILABLE"
+}
+
+### Create new car with invalid vin (completedOn is before startedOn)
+POST http://localhost:8080/api/cars
+Content-Type: application/json
+
+{
+    "id": 11,
+    "make": "BMW",
+    "model": "5 Series",
+    "year": 2023,
+    "color": "Blue",
+    "mileage": 60400,
+    "vin": "134132",
+    "status": "AVAILABLE"
+}
+
+### Update an existing car
+PUT http://localhost:8080/api/cars/11
+Content-Type: application/json
+
+{
+    "id": 5,
+    "make": "BMW",
+    "model": "5 Series",
+    "year": 2021,
+    "color": "Blue",
+    "mileage": 60400,
+    "vin": "4T1B11HK5JU670103",
+    "status": "AVAILABLE"
+}
+
+### Delete a car
+DELETE http://localhost:8080/api/cars/11
