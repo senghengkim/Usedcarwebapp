@@ -36,33 +36,33 @@ public class CarController {
         return carRepository.findAll();
     }
 
-    // @GetMapping("/{id}")
-    // Car findByID(@PathVariable Integer id){
-    //      Optional<Car> car = carRepository.findByID(id);
-    //      if(car.isEmpty()){
-    //          throw new CarNotFoundException(id);
-    //      }
-    //      return car.get();
-    // }
+    @GetMapping("/{id}")
+    Car findById(@PathVariable Integer id){
+         Optional<Car> car = carRepository.findById(id);
+         if(car.isEmpty()){
+             throw new CarNotFoundException(id);
+         }
+         return car.get();
+    }
 
-    // //post
-    // @ResponseStatus(HttpStatus.CREATED)
-    // @PostMapping("")
-    // void create(@Valid @RequestBody Car car){
-    //     carRepository.create(car);
-    // }
+    //post
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("")
+    void create(@Valid @RequestBody Car car){
+        carRepository.create(car);
+    }
 
-    // //put
-    // @ResponseStatus(HttpStatus.NO_CONTENT)
-    // @PutMapping("/{id}")
-    // void update(@Valid @RequestBody Car car, @PathVariable Integer id){
-    //     carRepository.update(car);
-    // }
-    // //delete
-    // @ResponseStatus(HttpStatus.NO_CONTENT)
-    // @DeleteMapping("/{id}")
-    // void delete(@PathVariable Integer id){
-    //     carRepository.delete(id);
-    // }
+    //put
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/{id}")
+    void update(@Valid @RequestBody Car car, @PathVariable Integer id){
+        carRepository.update(car);
+    }
+    //delete
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable Integer id){
+        carRepository.delete(id);
+    }
     
 }
