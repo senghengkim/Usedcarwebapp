@@ -11,16 +11,15 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.example.usedcars.car.Cars;
 
 @Component
 public class CarJsonDataLoader implements CommandLineRunner {
 
     private final Logger log = LoggerFactory.getLogger(CarJsonDataLoader.class);
-    private final CarRepository carRepository;
+    private final JdbcClientCarRepository carRepository;
     private final ObjectMapper objectMapper;
 
-    public CarJsonDataLoader(CarRepository carRepository, ObjectMapper objectMapper) {
+    public CarJsonDataLoader(JdbcClientCarRepository carRepository, ObjectMapper objectMapper) {
         this.carRepository = carRepository;
         this.objectMapper = objectMapper;
     }

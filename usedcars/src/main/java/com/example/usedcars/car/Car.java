@@ -1,11 +1,15 @@
 package com.example.usedcars.car;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
 
 public record Car(
+        @Id
         Integer id,
         @NotEmpty
         String make,
@@ -16,7 +20,9 @@ public record Car(
         @Positive 
         int mileage,
         String vin,
-        Status status
+        Status status,
+        @Version
+        Integer version
         ) {
 
         public Car {

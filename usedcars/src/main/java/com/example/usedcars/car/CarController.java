@@ -1,6 +1,5 @@
 package com.example.usedcars.car;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 import jakarta.validation.Valid;
 
@@ -49,20 +47,35 @@ public class CarController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     void create(@Valid @RequestBody Car car){
-        carRepository.create(car);
+        carRepository.save(car);
     }
 
     //put
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     void update(@Valid @RequestBody Car car, @PathVariable Integer id){
-        carRepository.update(car);
+        carRepository.save(car);
     }
     //delete
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id){
-        carRepository.delete(id);
+        carRepository.delete(carRepository.findById(id).get());
     }
-    
+
+    @GetMapping("/status/{status}")
+    List<Car> findAllByStatus(@PathVariable String status){
+        return carRepository.findAllByStatus(status);
+    }
+
+    @GetMapping("/color/{color}/status/{status}")
+    List<Car> findAllByColorAndStatus(@PathVariable String color, @PathVariable String status){
+        return carRepository.findAllByColorAndStatus(color, status);
+    }
+
+    @GetMapping("/year/after/{year}")
+    List<Car> findCarsMadeAfter(@PathVariable int year) {
+        return carRepository.findCarsMadeAfter(year);
+    }
+
 }

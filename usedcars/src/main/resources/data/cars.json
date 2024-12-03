@@ -8,7 +8,7 @@
         "color": "Black",
         "mileage": 20000,
         "vin": "4T1B11HK0JU003393",
-        "status": "AVAILABLE"
+        "status": "NOT_AVAILABLE"
     },
     {
         "id": 2,
