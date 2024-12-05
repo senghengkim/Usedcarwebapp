@@ -1,0 +1,104 @@
+{
+    "cars": [
+    {
+        "id": 1,
+        "make": "Toyota",
+        "model": "Camry",
+        "year": 2018,
+        "color": "Black",
+        "mileage": 20000,
+        "vin": "4T1B11HK0JU003393",
+        "status": "NOT_AVAILABLE"
+    },
+    {
+        "id": 2,
+        "make": "Honda",
+        "model": "Accord",
+        "year": 2017,
+        "color": "White",
+        "mileage": 30000,
+        "vin": "1HGCR2F3XHA000001",
+        "status": "AVAILABLE"
+    },
+    {
+        "id": 3,
+        "make": "Nissan",
+        "model": "Altima",
+        "year": 2016,
+        "color": "Red",
+        "mileage": 40000,
+        "vin": "1N4AL3APXGC000002",
+        "status": "AVAILABLE"
+    },
+    {
+        "id": 4,
+        "make": "Ford",
+        "model": "Fusion",
+        "year": 2021,
+        "color": "Blue",
+        "mileage": 50000,
+        "vin": "3FA6P0H76FR000003",
+        "status": "AVAILABLE"
+    },
+    {
+        "id": 5,
+        "make": "Chevrolet",
+        "model": "Malibu",
+        "year": 2014,
+        "color": "Silver",
+        "mileage": 60000,
+        "vin": "1G1ZD5ST9JF000004",
+        "status": "AVAILABLE"
+    },
+    {
+        "id": 6,
+        "make": "Hyundai",
+        "model": "Sonata",
+        "year": 2013,
+        "color": "Black",
+        "mileage": 70000,
+        "vin": "5NPEB4AC2DH000005",
+        "status": "AVAILABLE"
+    },
+    {
+        "id": 7,
+        "make": "Kia",
+        "model": "Optima",
+        "year": 2017,
+        "color": "White",
+        "mileage": 80000,
+        "vin": "5XXGR4A60CG000006",
+        "status": "AVAILABLE"
+    },
+    {
+        "id": 8,
+        "make": "Volkswagen",
+        "model": "Passat",
+        "year": 2013,
+        "color": "Red",
+        "mileage": 90000,
+        "vin": "1VWBN7A30BC000007",
+        "status": "AVAILABLE"
+    },
+    {
+        "id": 9,
+        "make": "Audi",
+        "model": "A4",
+        "year": 2024,
+        "color": "Blue",
+        "mileage": 100000,
+        "vin": "WAUFFAFLXAN000008",
+        "status": "AVAILABLE"
+    },
+    {
+        "id": 10,
+        "make": "BMW",
+        "model": "3 Series",
+        "year": 2023,
+        "color": "Silver",
+        "mileage": 110000,
+        "vin": "WBAWB73509P000009",
+        "status": "AVAILABLE"
+    }
+]
+}
