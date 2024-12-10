@@ -1,0 +1,72 @@
+[
+    {
+        "car_id": 1,
+        "description": "Well-maintained Toyota Camry",
+        "price": 15000.00,
+        "date": "2024-01-01",
+        "dealership_id": 1
+    },
+    {
+        "car_id": 2,
+        "description": "Honda Accord in excellent condition",
+        "price": 14000.00,
+        "date": "2024-01-02",
+        "dealership_id": 2
+    },
+    {
+        "car_id": 3,
+        "description": "Nissan Altima with low mileage",
+        "price": 13000.00,
+        "date": "2024-01-03",
+        "dealership_id": 3
+    },
+    {
+        "car_id": 4,
+        "description": "Ford Fusion with advanced features",
+        "price": 20000.00,
+        "date": "2024-01-04",
+        "dealership_id": 1
+    },
+    {
+        "car_id": 5,
+        "description": "Chevrolet Malibu in great shape",
+        "price": 12000.00,
+        "date": "2024-01-05",
+        "dealership_id": 2
+    },
+    {
+        "car_id": 6,
+        "description": "Hyundai Sonata with new tires",
+        "price": 11000.00,
+        "date": "2024-01-06",
+        "dealership_id": 3
+    },
+    {
+        "car_id": 7,
+        "description": "Kia Optima with clean history",
+        "price": 10000.00,
+        "date": "2024-01-07",
+        "dealership_id": 1
+    },
+    {
+        "car_id": 8,
+        "description": "Volkswagen Passat with sunroof",
+        "price": 9000.00,
+        "date": "2024-01-08",
+        "dealership_id": 2
+    },
+    {
+        "car_id": 9,
+        "description": "Audi A4 with premium package",
+        "price": 25000.00,
+        "date": "2024-01-09",
+        "dealership_id": 3
+    },
+    {
+        "car_id": 10,
+        "description": "BMW 3 Series with low mileage",
+        "price": 30000.00,
+        "date": "2024-01-10",
+        "dealership_id": 1
+    }
+]

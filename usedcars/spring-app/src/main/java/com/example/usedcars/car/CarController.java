@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
 @RequestMapping("/api/cars")
@@ -81,6 +84,12 @@ public class CarController {
     @GetMapping("/version")
     String version() {
         return "Hello";
+    }
+
+    @GetMapping(value = "/status", produces = MediaType.TEXT_HTML_VALUE)
+    @ResponseBody
+    public ClassPathResource status() {
+        return new ClassPathResource("static/index.html");
     }
 
 }
