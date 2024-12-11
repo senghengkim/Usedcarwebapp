@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS Car (
     price DOUBLE NOT NULL,
     color VARCHAR(255),
     mileage INT,
-    vin VARCHAR(17) NOT NULL,
+    vin VARCHAR(17) NOT NULL UNIQUE,
     status VARCHAR(50) NOT NULL
 );
 

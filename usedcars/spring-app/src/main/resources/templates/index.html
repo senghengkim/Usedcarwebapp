@@ -22,6 +22,12 @@
             <select name="model" id="model" th:value="${param.model}">
                 <option value="">Models</option>
             </select>
+            
+            <div class="form-group">
+                <select name="mileage" id="mileage" th:value="${param.mileage}">
+                    <option value="">Any Mileage</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label for="min-price">Min Price:</label>
                 <input type="range" id="min-price" name="minPrice" min="0" max="100000" step="1000" th:value="${param.minPrice ?: 0}">
@@ -32,26 +38,15 @@
                 <input type="range" id="max-price" name="maxPrice" min="0" max="100000" step="1000" th:value="${param.maxPrice ?: 100000}">
                 <span id="max-price-value" th:text="${param.maxPrice ?: 100000}">100000</span>
             </div>
-            <div class="form-group">
-                <select name="mileage" id="mileage" th:value="${param.mileage}">
-                    <option value="">Any Mileage</option>
-                    <option value="10000">10000 or less</option>
-                    <option value="20000">20000 or less</option>
-                    <option value="30000">30000 or less</option>
-                    <option value="40000">40000 or less</option>
-                    <option value="50000">50000 or less</option>
-                    <option value="60000">60000 or less</option>
-                    <option value="70000">70000 or less</option>
-                    <option value="80000">80000 or less</option>
-                    <option value="90000">90000 or less</option>
-                </select>
-            </div>
             <button type="submit" class="blue-button search-button">Search</button>
         </form>
         
         <!-- Display Search Results -->
         <div th:if="${cars != null}">
             <h2>Search Results</h2>
+            <div th:if="${#lists.isEmpty(cars)}">
+                <p>No results found</p>
+            </div>
             <table>
                 <thead>
                     <tr>

@@ -5,7 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const maxPriceSlider = document.getElementById('max-price');
     const minPriceValue = document.getElementById('min-price-value');
     const maxPriceValue = document.getElementById('max-price-value');
+    const mileageSelect = document.getElementById('mileage');
 
+    // Populate mileage options dynamically
+    const maxMileage = 100000;
+    const increment = 10000;
+    for (let i = increment; i <= maxMileage; i += increment) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = `${i.toLocaleString()} or less`;
+        mileageSelect.appendChild(option);
+    }
     // Fetch and populate makes
     fetch('/api/cars/makes')
         .then(response => response.json())

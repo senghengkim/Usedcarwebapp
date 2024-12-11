@@ -53,6 +53,7 @@ Welcome to the Car Web Application! This application allows users to search for 
 2. **Search for cars**:
     - Use the search form on the homepage to filter cars by make, model, price range, and mileage.
 
+    ![Example Image](assets/WebApplication.png)
 3. **Add a new car**:
     - Click on the "Add Car" button, fill out the form, and submit to add a new car listing.
 
@@ -75,14 +76,7 @@ Welcome to the Car Web Application! This application allows users to search for 
 - **src/main/resources/static/js**: Contains the JavaScript files.
 - **src/main/resources/application.properties**: Contains the application configuration.
 
-### Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
 
 ### License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-### Contact
-
-If you have any questions or need further clarification, please feel free to contact me at [your-email@example.com].
