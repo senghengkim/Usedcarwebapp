@@ -113,18 +113,33 @@ form#add-car-form, form#update-car-form, form#update-status-form, form#add-listi
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form#add-car-form .form-group, form#update-car-form .form-group, form#update-status-form .form-group, form#add-listing-form .form-group, form#add-dealership-form .form-group, form#add-sale-form .form-group {
+.add-car-container, .update-car-container, .delete-car-container, .update-status-container, .add-listing-container, .add-dealership-container, .add-sale-container {
+    margin-top: 20px;
+}
+
+form#add-car-form, form#update-car-form, form#delete-car-form, form#update-status-form, form#add-listing-form, form#add-dealership-form, form#add-sale-form {
+    display: none; /* Hide the form by default */
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form#add-car-form .form-group, form#update-car-form .form-group, form#delete-car-form .form-group, form#update-status-form .form-group, form#add-listing-form .form-group, form#add-dealership-form .form-group, form#add-sale-form .form-group {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-form#add-car-form label, form#update-car-form label, form#update-status-form label, form#add-listing-form label, form#add-dealership-form label, form#add-sale-form label {
+form#add-car-form label, form#update-car-form label, form#delete-car-form label, form#update-status-form label, form#add-listing-form label, form#add-dealership-form label, form#add-sale-form label {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-form#add-car-form input, form#update-car-form input, form#update-status-form input, form#add-listing-form input, form#add-dealership-form input, form#add-sale-form input {
+form#add-car-form input, form#update-car-form input, form#delete-car-form input, form#update-status-form input, form#add-listing-form input, form#add-dealership-form input, form#add-sale-form input {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;

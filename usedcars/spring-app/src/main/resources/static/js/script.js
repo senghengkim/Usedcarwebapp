@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const updateVin = document.getElementById('update-vin');
     const updateStatus = document.getElementById('update-status');
     const updatePrice = document.getElementById('update-price');
+    const deleteCarButton = document.getElementById('delete-car-button');
+    const deleteCarForm = document.getElementById('delete-car-form');
+    const deleteCarId = document.getElementById('delete-car-id');
 
     // Show the add car form when the button is clicked
     addCarButton.addEventListener('click', function() {
@@ -86,5 +89,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .catch(error => console.error('Error updating car:', error));
+    });
+
+    // Show the delete car form when the button is clicked
+    deleteCarButton.addEventListener('click', function() {
+        deleteCarForm.style.display = 'block';
+    });
+
+    // Handle delete car form submission
+    deleteCarForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const carId = deleteCarId.value;
+
+        fetch(`/api/cars/${carId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Car deleted successfully!');
+                window.location.reload();
+            } else {
+                alert('Failed to delete car.');
+            }
+        })
+        .catch(error => console.error('Error deleting car:', error));
     });
 });
