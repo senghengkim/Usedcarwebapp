@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Listings</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/script.js" defer></script>
+</head>
+<body>
+    <!-- Include the header fragment -->
+    <div th:replace="~{header :: header}"></div>
+    
+    <main>
+        <h1>Car Listings</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Color</th>
+                    <th>Mileage</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="car : ${cars}">
+                    <td th:text="${car.id}">ID</td>
+                    <td th:text="${car.make}">Make</td>
+                    <td th:text="${car.model}">Model</td>
+                    <td th:text="${car.year}">Year</td>
+                    <td th:text="${car.color}">Color</td>
+                    <td th:text="${car.mileage}">Mileage</td>
+                    <td th:text="${car.price}">Price</td>
+                    <td th:text="${car.status}">Status</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="add-car-container">
+            <button id="add-car-button" class="blue-button">Add Car</button>
+            
+            <!-- Add Car Form -->
+            <form id="add-car-form" action="/api/cars" method="post" style="display: none;">
+                <div class="form-group">
+                    <label for="make">Make:</label>
+                    <input type="text" id="make" name="make" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="model">Model:</label>
+                    <input type="text" id="model" name="model" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <input type="number" id="year" name="year" min="1900" max="2025" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="color">Color:</label>
+                    <input type="text" id="color" name="color">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mileage">Mileage:</label>
+                    <input type="number" id="mileage" name="mileage" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="vin">VIN:</label>
+                    <input type="text" id="vin" name="vin" minlength="17" maxlength="17" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <input type="text" id="status" name="status" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" required>
+                </div>
+                
+                <button type="submit" class="blue-button">Add Car</button>
+            </form>
+        </div>
+
+        <div class="update-car-container">
+            <button id="update-car-button" class="blue-button">Update Car</button>
+            
+            <!-- Update Car Form -->
+            <form id="update-car-form" method="post" style="display: none;">
+                <div class="form-group">
+                    <label for="update-car-id">Car ID:</label>
+                    <input type="number" id="update-car-id" name="id" required>
+                </div>
+                <div class="form-group">
+                    <label for="update-make">Make:</label>
+                    <input type="text" id="update-make" name="make" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="update-model">Model:</label>
+                    <input type="text" id="update-model" name="model" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="update-year">Year:</label>
+                    <input type="number" id="update-year" name="year" min="1900" max="2025" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="update-color">Color:</label>
+                    <input type="text" id="update-color" name="color">
+                </div>
+                
+                <div class="form-group">
+                    <label for="update-mileage">Mileage:</label>
+                    <input type="number" id="update-mileage" name="mileage" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="update-vin">VIN:</label>
+                    <input type="text" id="update-vin" name="vin" minlength="17" maxlength="17" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="update-status">Status:</label>
+                    <input type="text" id="update-status" name="status" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="update-price">Price:</label>
+                    <input type="number" id="update-price" name="price" required>
+                </div>
+                
+                <button type="submit" class="blue-button">Update Car</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

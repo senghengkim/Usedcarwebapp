@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Include the header fragment -->
+    <div th:replace="~{header :: header}"></div>
+    
+    <main>
+        <h1>Sales</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Sale Date</th>
+                    <th>Sale Price</th>
+                    <th>Payment Method</th>
+                    <th>Listing ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="sale : ${sales}">
+                    <td th:text="${sale.id}">ID</td>
+                    <td th:text="${sale.saleDate}">Sale Date</td>
+                    <td th:text="${sale.salePrice}">Sale Price</td>
+                    <td th:text="${sale.paymentMethod}">Payment Method</td>
+                    <td th:text="${sale.listingId}">Listing ID</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

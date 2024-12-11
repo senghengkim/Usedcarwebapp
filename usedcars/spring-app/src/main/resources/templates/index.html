@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Used Cars</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/index.js" defer></script>
+</head>
+<body>
+    <!-- Include the header fragment -->
+    <div th:replace="~{header :: header}"></div>
+    
+    <main>
+        <h1>Welcome to the Used Cars Application</h1>
+        
+        <!-- Search Form -->
+        <form action="/" method="get" class="search-form">
+            <select name="make" id="make" th:value="${param.make}">
+                <option value="">Makes</option>
+                <!-- Options will be populated by JavaScript -->
+            </select>
+            <select name="model" id="model" th:value="${param.model}">
+                <option value="">Models</option>
+            </select>
+            <div class="form-group">
+                <label for="min-price">Min Price:</label>
+                <input type="range" id="min-price" name="minPrice" min="0" max="100000" step="1000" th:value="${param.minPrice ?: 0}">
+                <span id="min-price-value" th:text="${param.minPrice ?: 0}">0</span>
+            </div>
+            <div class="form-group">
+                <label for="max-price">Max Price:</label>
+                <input type="range" id="max-price" name="maxPrice" min="0" max="100000" step="1000" th:value="${param.maxPrice ?: 100000}">
+                <span id="max-price-value" th:text="${param.maxPrice ?: 100000}">100000</span>
+            </div>
+            <div class="form-group">
+                <select name="mileage" id="mileage" th:value="${param.mileage}">
+                    <option value="">Any Mileage</option>
+                    <option value="10000">10000 or less</option>
+                    <option value="20000">20000 or less</option>
+                    <option value="30000">30000 or less</option>
+                    <option value="40000">40000 or less</option>
+                    <option value="50000">50000 or less</option>
+                    <option value="60000">60000 or less</option>
+                    <option value="70000">70000 or less</option>
+                    <option value="80000">80000 or less</option>
+                    <option value="90000">90000 or less</option>
+                </select>
+            </div>
+            <button type="submit" class="blue-button search-button">Search</button>
+        </form>
+        
+        <!-- Display Search Results -->
+        <div th:if="${cars != null}">
+            <h2>Search Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Year</th>
+                        <th>Color</th>
+                        <th>Mileage</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="car : ${cars}">
+                        <td th:text="${car.id}">ID</td>
+                        <td th:text="${car.make}">Make</td>
+                        <td th:text="${car.model}">Model</td>
+                        <td th:text="${car.year}">Year</td>
+                        <td th:text="${car.color}">Color</td>
+                        <td th:text="${car.mileage}">Mileage</td>
+                        <td th:text="${car.price}">Price</td>
+                        <td th:text="${car.status}">Status</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

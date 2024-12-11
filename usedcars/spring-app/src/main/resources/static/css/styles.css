@@ -1,0 +1,164 @@
+/* styles.css */
+
+/* Reset some basic elements */
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background color for the body */
+}
+
+header {
+    background: linear-gradient(90deg, #1c1c1c, #333333); /* Gradient background for the header */
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1, header .large-text {
+    color: #ffffff; /* White color for the header text */
+    margin: 0;
+    font-size: 2em; /* Adjust the size as needed */
+    font-weight: bold; /* Change thickness */
+    text-decoration: none; /* Remove underline */
+}
+
+nav {
+    margin-top: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: #ffffff; /* White color for the navigation links */
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #f05a28; /* Orange color on hover */
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    background-color: #ffffff; /* White background for the main content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for the main content */
+}
+
+.large-text {
+    font-size: 2em; /* Adjust the size as needed */
+    font-weight: bold; /* Change thickness */
+    text-decoration: none; /* Remove underline */
+}
+
+.large-text:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+select#make, select#model, select#mileage, .search-button {
+    font-family: Arial, sans-serif;
+    font-size: 1em; /* Smaller font size for the dropdown */
+    font-weight: normal; /* Normal font weight */
+    padding: 5px; /* Adjust padding for a more compact look */
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.blue-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.blue-button:hover {
+    background-color: #0056b3;
+}
+
+.add-car-container, .update-car-container, .update-status-container, .add-listing-container, .add-dealership-container, .add-sale-container {
+    margin-top: 20px;
+}
+
+form#add-car-form, form#update-car-form, form#update-status-form, form#add-listing-form, form#add-dealership-form, form#add-sale-form {
+    display: none; /* Hide the form by default */
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form#add-car-form .form-group, form#update-car-form .form-group, form#update-status-form .form-group, form#add-listing-form .form-group, form#add-dealership-form .form-group, form#add-sale-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+form#add-car-form label, form#update-car-form label, form#update-status-form label, form#add-listing-form label, form#add-dealership-form label, form#add-sale-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form#add-car-form input, form#update-car-form input, form#update-status-form input, form#add-listing-form input, form#add-dealership-form input, form#add-sale-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table th, table td {
+    text-align: center;
+}

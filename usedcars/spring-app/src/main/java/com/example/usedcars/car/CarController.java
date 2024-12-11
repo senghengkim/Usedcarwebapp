@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -66,6 +67,20 @@ public class CarController {
         carRepository.delete(carRepository.findById(id).get());
     }
 
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/{id}/status")
+    public void updateStatus(@PathVariable Integer id, @RequestParam("status") String status) {
+        Optional<Car> carOptional = carRepository.findById(id);
+        if (carOptional.isPresent()) {
+            Car car = carOptional.get();
+            car.setStatus(status);
+            carRepository.save(car);
+        } else {
+            throw new CarNotFoundException(id);
+        }
+    }
+    
     @GetMapping("/status/{status}")
     List<Car> findAllByStatus(@PathVariable String status){
         return carRepository.findAllByStatus(status);
@@ -81,15 +96,21 @@ public class CarController {
         return carRepository.findCarsMadeAfter(year);
     }
 
-    @GetMapping("/version")
-    String version() {
-        return "Hello";
+    @GetMapping("/makes")
+    List<String> findDistinctMakes() {
+        return carRepository.findDistinctMakes();
     }
 
-    @GetMapping(value = "/status", produces = MediaType.TEXT_HTML_VALUE)
-    @ResponseBody
-    public ClassPathResource status() {
-        return new ClassPathResource("static/index.html");
+    @GetMapping("/models")
+    List<String> findDistinctModels() {
+        return carRepository.findDistinctModels();
     }
+
+    @GetMapping("/models/{make}")
+    List<String> findDistinctModelsByMake(@PathVariable String make) {
+        return carRepository.findDistinctModelsByMake(make);
+    }
+
+
 
 }

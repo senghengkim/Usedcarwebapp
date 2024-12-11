@@ -1,5 +1,6 @@
 package com.example.usedcars.listing;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,15 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
 @RequestMapping("/api/listings")
@@ -60,5 +59,18 @@ public class ListingController {
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id) {
         listingRepository.deleteById(id);
+    }
+
+    // Custom create method
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/create")
+    public void createCustom(
+            @RequestParam("carId") Integer carId,
+            @RequestParam("description") String description,
+            @RequestParam("price") Double price,
+            @RequestParam("date") @Valid LocalDate date,
+            @RequestParam("dealershipId") Integer dealershipId) {
+        Listing listing = new Listing(null, carId, description, price, date, dealershipId);
+        listingRepository.save(listing);
     }
 }

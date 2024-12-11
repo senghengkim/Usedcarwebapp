@@ -1,13 +1,13 @@
 CREATE TABLE IF NOT EXISTS Car (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     make VARCHAR(255) NOT NULL,
-    model VARCHAR(255),
-    `year` INT CHECK (`year` >= 1900 AND `year` <= 2025),
+    model VARCHAR(255) NOT NULL,
+    year INT NOT NULL,
+    price DOUBLE NOT NULL,
     color VARCHAR(255),
-    mileage INT CHECK (mileage > 0),
-    vin CHAR(17) NOT NULL,
-    `status` VARCHAR(50) CHECK (status IN ('AVAILABLE', 'SOLD', 'PENDING', 'NOT_AVAILABLE')),
-    VERSION INT
+    mileage INT,
+    vin VARCHAR(17) NOT NULL,
+    status VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Dealership (
@@ -27,4 +27,13 @@ CREATE TABLE IF NOT EXISTS Listing (
     dealership_id INT NOT NULL,
     FOREIGN KEY (car_id) REFERENCES Car(id),
     FOREIGN KEY (dealership_id) REFERENCES Dealership(id)
+);
+
+CREATE TABLE IF NOT EXISTS Sale (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    sale_date DATE NOT NULL,
+    sale_price DOUBLE NOT NULL,
+    payment_method VARCHAR(50) NOT NULL,
+    listing_id INT NOT NULL,
+    FOREIGN KEY (listing_id) REFERENCES Listing(id)
 );

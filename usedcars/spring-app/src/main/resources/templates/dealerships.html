@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dealership Listings</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/dealerships.js" defer></script>
+</head>
+<body>
+    <!-- Include the header fragment -->
+    <div th:replace="~{header :: header}"></div>
+    
+    <main>
+        <h1>Dealership Listings</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="dealership : ${dealerships}">
+                    <td th:text="${dealership.id}">ID</td>
+                    <td th:text="${dealership.name}">Name</td>
+                    <td th:text="${dealership.phoneNumber}">Phone Number</td>
+                    <td th:text="${dealership.address}">Address</td>
+                    <td th:text="${dealership.email}">Email</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="add-dealership-container">
+            <button id="add-dealership-button" class="blue-button">Add Dealership</button>
+            
+            <!-- Add Dealership Form -->
+            <form id="add-dealership-form" action="/api/dealerships/create" method="post" style="display: none;">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="text" id="phone_number" name="phone_number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <button type="submit" class="blue-button">Add Dealership</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
